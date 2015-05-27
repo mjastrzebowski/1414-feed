@@ -12,7 +12,8 @@ angular
   .module('1414FeedApp', [
     'ngAnimate',
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'infinite-scroll'
   ])
   .config(function ($routeProvider) {
     $routeProvider
