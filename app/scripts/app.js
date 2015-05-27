@@ -13,13 +13,14 @@ angular
     'ngAnimate',
     'ngResource',
     'ngRoute',
-    'infinite-scroll'
+    'infinite-scroll',
+    'com.2fdevs.videogular'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/feed.html',
-        controller: 'FeedCtrl'
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'

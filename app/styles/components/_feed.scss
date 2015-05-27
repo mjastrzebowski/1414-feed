@@ -1,0 +1,24 @@
+.feed {
+  .thumbnail {
+    position: relative;
+
+    .btn-play {
+      display: none;
+    }
+
+    &:hover .btn-play {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: {
+        color: rgba(0, 0, 0, 0.1);
+        image: url('../images/play_button.png');
+        position: center center;
+        repeat: no-repeat;
+        size: contain;
+      }
+    }
+  }
+
+}
