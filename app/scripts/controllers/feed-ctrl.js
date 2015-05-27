@@ -12,7 +12,6 @@ angular.module('1414FeedApp')
     $scope.getFeed = function () {
       FeedManager.get().then(function (data) {
         $scope.photos = data;
-        console.log(data[0]);
       });
     };
   });

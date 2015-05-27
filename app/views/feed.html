@@ -1,15 +1,22 @@
-<div class="container" ng-controller="FeedCtrl">
+<!-- <div class="container" ng-controller="FeedCtrl">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Always a pleasure scaffolding your apps.
   </p>
   <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+</div> -->
 
-<div class="container" ng-init="getFeed()">
-  <ul class="list">
-    <li>{{ photos[0].photo.id }}</li>
-    <li ng-repeat="photo in photos track by photo.photo.id"><img ng-src="{{ photo.photo.thumbs.thumb_fill_50 }}"></li>
-  </ul>
+<div class="container-fluid" ng-init="getFeed()">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="photo in photos track by photo.photo.id">
+      <a href="#" class="thumbnail">
+        <img class="img-responsive" ng-src="{{ photo.photo.thumbs.thumb_fit_300 }}" alt="{{ photo.photo.description.text }}">
+        <div class="caption">
+          <h4>{{ photo.photo.description.text }} <span class="badge">{{ photo.photo.meta_information.rating_avg }}</span></h4>
+          <p><span class="label label-default" ng-repeat="tag in photo.photo.description.tags">{{ tag }}</span></p>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
