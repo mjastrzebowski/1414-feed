@@ -2,12 +2,11 @@
   .thumbnail {
     position: relative;
 
-    .btn-play {
-      display: none;
-    }
-
-    &:hover .btn-play {
+    &::before {
+      // content: '';
       position: absolute;
+      top: 0;
+      left: 0;
       display: block;
       width: 100%;
       height: 100%;
@@ -16,9 +15,24 @@
         image: url('../images/play_button.png');
         position: center center;
         repeat: no-repeat;
-        size: contain;
+        size: 125px;
       }
     }
   }
+}
 
+.video-overlay {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: $body-bg;
+  top: 0;
+  left: 0;
+}
+
+.video-overlay .videogular-container {
+  position: relative;
+  height: 90%;
+  margin: 20px auto;
 }

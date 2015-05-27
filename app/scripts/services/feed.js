@@ -38,10 +38,14 @@ angular.module('1414FeedApp')
       this.busy = true;
 
       return $q.when(this.api().query().$promise).then(function (results) {
-        Array.prototype.push.apply(this.items, results.photos);
+        this.set(results.photos);
         this.busy = false;
         return this.items;
       }.bind(this));
+    };
+
+    Feed.prototype.set = function (items) {
+      Array.prototype.push.apply(this.items, items);
     };
 
     Feed.prototype.nextPage = function () {
