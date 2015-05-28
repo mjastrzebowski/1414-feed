@@ -28,7 +28,7 @@ angular.module('1414FeedApp')
     };
 
     Feed.prototype.api = function () {
-      return $resource(this.url, this.params, this.actions);
+      return $resource(this.url, this.params, this.actions).query().$promise;
     };
 
     Feed.prototype.get = function () {
@@ -36,8 +36,7 @@ angular.module('1414FeedApp')
         return;
       }
       this.busy = true;
-
-      return $q.when(this.api().query().$promise).then(function (results) {
+      return $q.when(this.api()).then(function (results) {
         this.set(results.photos);
         this.busy = false;
         return this.items;
@@ -48,7 +47,7 @@ angular.module('1414FeedApp')
       Array.prototype.push.apply(this.items, items);
     };
 
-    Feed.prototype.nextPage = function () {
+    Feed.prototype.next = function () {
       this.params.page++;
 
       return this.get();
