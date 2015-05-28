@@ -35,7 +35,7 @@ angular.module('1414FeedApp')
       }
     };
 
-    Player.prototype.play = function (item) {
+    Player.prototype.open = function (item) {
       var url = item.video.urls.progressive;
       this.stopPlayer();
       this.config.sources = [{
@@ -46,7 +46,7 @@ angular.module('1414FeedApp')
       this.visible = true;
     };
 
-    Player.prototype.stop = function () {
+    Player.prototype.close = function () {
       this.stopPlayer();
       this.visible = false;
     };

@@ -1,5 +1,5 @@
-<div class="container-fluid" ng-controller="MainCtrl as main">
-  <div class="video-overlay" ng-show="main.player.visible" ng-click="main.player.stop()">
+<div class="container-fluid">
+  <div class="video-overlay" ng-show="main.player.visible" ng-click="main.player.close()">
     <div class="container videogular-container">
       <videogular vg-theme="main.player.config.theme.url" vg-player-ready="main.player.onPlayerReady($API)">
         <vg-media vg-src="main.player.config.sources"
@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="row" ng-hide="main.player.visible">
+  <div class="row">
     <div class="feed clearfix" infinite-scroll="main.feed.nextPage()" infinite-scroll-disabled="feed.busy">
       <div class="deckgrid" deckgrid source="main.feed.items" cardTemplate="views/feed-item.html"></div>
     </div>

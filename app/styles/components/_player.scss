@@ -1,3 +1,7 @@
+body.overlayed {
+  overflow: hidden;
+}
+
 .video-overlay {
   position: fixed;
   z-index: 100;
