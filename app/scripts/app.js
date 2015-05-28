@@ -14,7 +14,8 @@ angular
     'ngResource',
     'ngRoute',
     'infinite-scroll',
-    'com.2fdevs.videogular'
+    'com.2fdevs.videogular',
+    'akoenig.deckgrid'
   ])
   .config(function ($routeProvider) {
     $routeProvider

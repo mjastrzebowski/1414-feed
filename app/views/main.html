@@ -1,13 +1,4 @@
-<!-- <div class="container" ng-controller="FeedCtrl">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div> -->
-
-<div class="container-fluid" ng-controller="MainCtrl as main" ng-init="main.feed.get()">
+<div class="container-fluid" ng-controller="MainCtrl as main">
   <div class="video-overlay" ng-show="main.player.visible" ng-click="main.player.stop()">
     <div class="container videogular-container">
       <videogular vg-theme="main.player.config.theme.url" vg-player-ready="main.player.onPlayerReady($API)">
@@ -21,15 +12,7 @@
 
   <div class="row" ng-hide="main.player.visible">
     <div class="feed clearfix" infinite-scroll="main.feed.nextPage()" infinite-scroll-disabled="feed.busy">
-      <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="photo in main.feed.items track by $index">
-        <div class="thumbnail">
-          <img class="img-thumb img-responsive" alt="{{ photo.photo.description.text }}" ng-src="{{ photo.photo.thumbs.thumb_limit_640 }}" ng-click="main.player.play(photo.photo)">
-          <div class="caption">
-            <h4>{{ photo.photo.description.text }} <span class="badge">{{ photo.photo.meta_information.rating_avg }}</span></h4>
-            <p><span class="label label-default" ng-repeat="tag in photo.photo.description.tags">{{ tag }}</span></p>
-          </div>
-        </div>
-      </div>
+      <div class="deckgrid" deckgrid source="main.feed.items" cardTemplate="views/feed-item.html"></div>
     </div>
   </div>
 </div>

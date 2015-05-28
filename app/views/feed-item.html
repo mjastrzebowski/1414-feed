@@ -1,0 +1,7 @@
+<div class="thumbnail">
+  <img class="img-thumb img-responsive" alt="{{ card.photo.description.text }}" ng-src="{{ card.photo.thumbs.thumb_limit_640 }}" ng-click="mother.main.player.play(card.photo)">
+  <div class="caption">
+    <h4>{{ card.photo.description.text }} <span class="badge">{{ card.photo.meta_information.rating_avg }}</span></h4>
+    <p class="tags clearfix"><span class="label label-default" ng-repeat="tag in card.photo.description.tags">{{ tag }}</span></p>
+  </div>
+</div>
