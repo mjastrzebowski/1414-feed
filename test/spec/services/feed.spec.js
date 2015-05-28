@@ -2,8 +2,6 @@
 
 describe('Factory: Feed', function () {
 
-  var $q;
-  var $resource;
   var $rootScope;
   var feed;
 
@@ -11,10 +9,8 @@ describe('Factory: Feed', function () {
   beforeEach(module('1414FeedApp'));
 
   // // Initialize the controller and a mock scope
-  beforeEach(inject(function (Feed, _$rootScope_, _$q_, _$resource_) {
+  beforeEach(inject(function (Feed, _$rootScope_) {
     feed = new Feed();
-    $q = _$q_;
-    $resource = _$resource_;
     $rootScope = _$rootScope_;
   }));
 
@@ -50,7 +46,7 @@ describe('Factory: Feed', function () {
 
     it('should get items from api', function () {
       // given
-      spyOn(feed, 'api').and.returnValue(items);
+      feed.api = jasmine.createSpy().and.returnValue(items);
 
       // when
       var results;
@@ -82,6 +78,18 @@ describe('Factory: Feed', function () {
       // then
       expect(feed.api).toHaveBeenCalled();
       expect(results).toEqual(mergedPhotos);
+    });
+
+    it('should change page when getting next items', function () {
+      // given
+      var page = 1;
+
+      // when
+      feed.params.page = page;
+      feed.next();
+
+      // then
+      expect(feed.params.page).toEqual(page+1);
     });
   });
 
