@@ -8,28 +8,18 @@
  * Controller of the 1414FeedApp
  */
 angular.module('1414FeedApp')
-  .service('Player', function ($q, $resource, $sce) {
+  .service('Player', function () {
     var Player = function () {
-      this._api = null;
       this.config = {
         preload: 'none',
-        sources: [
-          { src: $sce.trustAsResourceUrl('http://static.videogular.com/assets/videos/videogular.mp4'), type: 'video/mp4' },
-          { src: $sce.trustAsResourceUrl('http://static.videogular.com/assets/videos/videogular.webm'), type: 'video/webm' },
-          { src: $sce.trustAsResourceUrl('http://static.videogular.com/assets/videos/videogular.ogg'), type: 'video/ogg' }
-        ],
-        tracks: [{
-          src: 'http://www.videogular.com/assets/subs/pale-blue-dot.vtt',
-          kind: 'subtitles',
-          srclang: 'en',
-          label: 'English',
-          default: ''
-        }],
+        sources: [],
+        tracks: [],
         theme: {
           url: 'http://www.videogular.com/styles/themes/default/latest/videogular.css'
         }
       };
 
+      this._api = null;
       this.visible = false;
     };
 
