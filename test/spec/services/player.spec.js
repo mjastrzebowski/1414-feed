@@ -39,7 +39,35 @@ describe('Factory: Player', function () {
   });
 
   describe('player functions', function () {
+    var item = {
+      video: {
+        urls: {
+          progressive: 'fakeurl'
+        }
+      }
+    };
+    var fakeApi = jasmine.createSpyObj('api', ['play', 'stop']);
 
+    beforeEach(function () {
+      player.onPlayerReady(fakeApi);
+    });
+
+    it('should set video url and play it', function () {
+      // when
+      player.open(item);
+
+      // then
+      expect(fakeApi.play).toHaveBeenCalled();
+      expect(player.config.sources[0].src).toEqual(item.video.urls.progressive);
+    });
+
+    it('should stop player', function () {
+      // when
+      player.close();
+
+      // then
+      expect(fakeApi.stop).toHaveBeenCalled();
+    });
   });
 
 });
