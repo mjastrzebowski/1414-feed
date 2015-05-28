@@ -8,7 +8,7 @@
  * Controller of the 1414FeedApp
  */
 angular.module('1414FeedApp')
-  .service('Player', function () {
+  .service('Player', function ($log) {
     var Player = function () {
       this.config = {
         preload: 'none',
@@ -27,9 +27,17 @@ angular.module('1414FeedApp')
       this._api = api;
     };
 
+    Player.prototype.stopPlayer = function () {
+      try {
+        this._api.stop();
+      } catch (e) {
+        $log.error('Player error - video format is not supported in this browser');
+      }
+    };
+
     Player.prototype.play = function (item) {
       var url = item.video.urls.progressive;
-      this._api.stop();
+      this.stopPlayer();
       this.config.sources = [{
         src: url,
         type: 'video/mp4'
@@ -39,7 +47,7 @@ angular.module('1414FeedApp')
     };
 
     Player.prototype.stop = function () {
-      this._api.stop();
+      this.stopPlayer();
       this.visible = false;
     };
 

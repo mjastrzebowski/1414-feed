@@ -14,7 +14,7 @@ angular.module('1414FeedApp')
       this.params = {
         version: 1,
         category: 5328,
-        limit: 10,
+        limit: 20,
         order: 'date',
         page: 1
       };
