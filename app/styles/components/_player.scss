@@ -1,0 +1,15 @@
+.video-overlay {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: $body-bg;
+  top: 0;
+  left: 0;
+
+  .videogular-container {
+    position: relative;
+    height: 90%;
+    margin: $line-height-computed auto;
+  }
+}

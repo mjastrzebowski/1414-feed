@@ -1,0 +1,16 @@
+.deckgrid {
+  &[deckgrid]::before {
+    content: '4 .col-sm-6.col-md-4.col-lg-3';
+    font-size: 0;
+    visibility: hidden;
+    @media screen and (max-width: $screen-md-max){
+      content: '3 .col-sm-6.col-md-4.col-lg-3';
+    }
+    @media screen and (max-width: $screen-sm-max){
+      content: '2 .col-sm-6.col-md-4.col-lg-3';
+    }
+    @media screen and (max-width: $screen-xs-max){
+      content: '1 .col-sm-6.col-md-4.col-lg-3';
+    }
+  }
+}
