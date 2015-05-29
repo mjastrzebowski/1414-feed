@@ -16,4 +16,17 @@ body.overlayed {
     height: 90%;
     margin: $line-height-computed auto;
   }
+
+  .close {
+    position: absolute;
+    z-index: 900;
+    top: .25em;
+    right: .5em;
+    width: 1em;
+    height: 1em;
+    background: $body-bg;
+    border-radius: $thumbnail-border-radius;
+    font-size: 4em;
+    line-height: 1em;
+  }
 }
